@@ -8,8 +8,10 @@ function takeaway(a, b) {
     return c =a - b;
 }
 
-<<<<<<< HEAD
+
 console.log(takeaway(1, 3));
-=======
+
+
+
 console.log(takeaway(1,3));
->>>>>>> 6077ce95ae8f4255d6ce7e9ef637539830d5bbf3
+
