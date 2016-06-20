@@ -1,17 +1,30 @@
-var message = "Howdy" + " " + "JavaScript";
+var message = "Howdy" + " " + "JavaScript\n";
 console.log(message);
 
 var rand = Math.floor(Math.random() * 5);
-console.log(rand);
+
+console.log("The random number is: " + rand + "\n");
 
 function takeaway(a, b) {
     return c =a - b;
 }
 
+console.log("Subtraction method: " + takeaway(1,3)+ "\n");
 
-console.log(takeaway(1, 3));
+var array01 = [0,1,2,3,4];
+token = array01[2];
+console.log("The index 2 of array01 is: " + token+ "\n");
 
+array01[1] = 10;
+console.log("Assign the new value(10) to the array01 at index 1: " + array01+ "\n");
 
+numArray01=array01.length;
+console.log("The number of items of array01 is: " + numArray01+ "\n");
 
-console.log(takeaway(1,3));
+var products = ["Choo Choo Chocolate", "Icy Mint", "Cake Batter", "Bubblegum"];
+var last = products.length-1;
+var recent = products[last];	//products[products.length-1]
+console.log("The recent item of products is: " + recent+ "\n");
 
+var array02 = [1,2,"abc",true];
+console.log("A array of various types is : " + array02+ "\n");
