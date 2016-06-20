@@ -28,3 +28,37 @@ console.log("The recent item of products is: " + recent+ "\n");
 
 var array02 = [1,2,"abc",true];
 console.log("A array of various types is : " + array02+ "\n");
+
+var scores = [60, 50, 60, 58, 54, 54, 58, 50, 52, 54, 48, 69,
+34, 55, 51, 52, 44, 51, 69, 64, 66, 55, 52, 61,
+46, 31, 57, 52, 44, 18, 41, 53, 55, 61, 51, 44];
+
+
+var markBubbles=[];
+
+var maxNum=0;
+
+for(i=0;i<=scores.length-1;i++){
+	console.log("Bubble solution #" + i + ": " + scores[i]);
+	if(true===findMaxNum(scores[i],maxNum)){
+	maxNum=scores[i];
+	}
+}
+for(i=0;i<=scores.length-1;i++){
+	if(maxNum==scores[i]){
+		markBubbles=markBubbles.concat(i);
+	}
+}
+
+console.log("Bubbles test: " + scores.length);
+console.log("Highest bubble scores: " + maxNum);
+console.log("Solutoins with highest score: " + markBubbles);
+
+function findMaxNum(num, maxNum){
+	if (maxNum <= num){
+		maxNum=num;
+		return true;
+	}else
+	return false;
+}
+
