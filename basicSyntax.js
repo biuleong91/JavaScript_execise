@@ -1,23 +1,30 @@
+
+//Hello world
 var message = "Howdy" + " " + "JavaScript\n";
 console.log(message);
 
+//Random number
 var rand = Math.floor(Math.random() * 5);
 
 console.log("The random number is: " + rand + "\n");
 
+//Function
 function takeaway(a, b) {
     return c = a - b;
 }
 
 console.log("Subtraction method: " + takeaway(1, 3) + "\n");
 
+//Array
 var array01 = [0, 1, 2, 3, 4];
 token = array01[2];
 console.log("The index 2 of array01 is: " + token + "\n");
 
+//Set values of array
 array01[1] = 10;
 console.log("Assign the new value(10) to the array01 at index 1: " + array01 + "\n");
 
+//Get the length of array
 numArray01 = array01.length;
 console.log("The number of items of array01 is: " + numArray01 + "\n");
 
@@ -26,6 +33,7 @@ var last = products.length - 1;
 var recent = products[last]; //products[products.length-1]
 console.log("The recent item of products is: " + recent + "\n");
 
+//Various types in an array
 var array02 = [1, 2, "abc", true];
 console.log("A array of various types is : " + array02 + "\n");
 
@@ -44,6 +52,7 @@ var bestSolutions = [];
 
 var highestScore = 0;
 
+//For loop
 for (i = 0; i <= scores.length - 1; i++) {
     console.log("Bubble solution #" + i + ": " + scores[i]);
     if (true === findHigherScore(scores[i], highestScore)) {
@@ -99,3 +108,27 @@ function getMostCostEffectiveSolution(scores, costs, highscore) {
     }
     return index;
 }
+
+//Object
+var dog={
+	name: "happy",
+	age: 10,
+	isMale: false
+};
+console.log("Dog name: " + dog.name);
+
+dog.name="Happy";
+console.log("Dog name02: " + dog.name);
+
+dog.weight=45;
+console.log("Dog weight: " + dog.weight);
+
+console.log("Dog isMale: " + dog.isMale);
+delete dog.isMale;
+console.log("Dog isMale: " + dog.isMale);
+console.log(dog);
+
+var dog2=dog;
+console.log(dog2);
+dog2.age=12;
+console.log(dog);
