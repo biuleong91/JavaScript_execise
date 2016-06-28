@@ -1,0 +1,3 @@
+Using the src attribute of the <script> tag to specify the URL to the JavaScript file from the <head> has the drawback that all the code needs to be loaded before the body of page.	P72
+
+If you change a property of the object in a function, you are changing the property in the original object. P232

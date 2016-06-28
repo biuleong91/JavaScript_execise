@@ -3,7 +3,7 @@
 var message = "Howdy" + " " + "JavaScript\n";
 console.log(message);
 
-//Random number
+//Random number, get the number from 1 to 5 using the floor method
 var rand = Math.floor(Math.random() * 5);
 
 console.log("The random number is: " + rand + "\n");
@@ -113,7 +113,10 @@ function getMostCostEffectiveSolution(scores, costs, highscore) {
 var dog={
 	name: "happy",
 	age: 10,
-	isMale: false
+	isMale: false,
+	toSit: function(){
+		console.log(this.name + " is sitting");
+	}
 };
 console.log("Dog name: " + dog.name);
 
@@ -132,3 +135,8 @@ var dog2=dog;
 console.log(dog2);
 dog2.age=12;
 console.log(dog);
+
+for(var prop in dog){
+	console.log(prop + ": " + dog[prop]);
+}
+dog.toSit();
