@@ -140,3 +140,7 @@ for(var prop in dog){
 	console.log(prop + ": " + dog[prop]);
 }
 dog.toSit();
+
+// for(var prop in document){
+// 	console.log(prop + ": " + document[prop]);
+// }

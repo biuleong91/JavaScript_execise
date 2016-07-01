@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+    .democlass {
+        color: blue;
+    }
+    .bigFont {
+    	font-size: 32px;
+    }
+    </style>
+    <script>
+
+    //sets the an attribute of the HTML element. The first parameter is the name of attribute; the second is the value of that attribute. P295
+    function myFunction() {
+        document.getElementsByTagName("H1")[0].setAttribute("class", "democlass");
+    }
+    function mySong(){
+    	var song01 = document.getElementById("song01");
+    	song01.innerHTML = "Beyond - lover";
+    }
+    //Runs the mySong function automatically after the page is completely loaded. P285
+    window.onload=mySong;
+    </script>
+</head>
+
+<body>
+	<p id="song01" class="bigFont">Beyond</p>
+    <h1>Hello World</h1>
+    <p>Click the button to add a class attribute with the value of "democlass" to the h1 element.</p>
+    <button onclick="myFunction()">Try it</button>
+</body>
+
+</html>
