@@ -3,8 +3,16 @@
 
 <head>
     <style>
+    body{
+    	text-align: center;
+    }
+    p{
+    	display: inline;
+    }
+
     .democlass {
         color: blue;
+        font-size: 32px;
     }
     .bigFont {
     	font-size: 32px;
@@ -14,22 +22,29 @@
 
     //sets the an attribute of the HTML element. The first parameter is the name of attribute; the second is the value of that attribute. P295
     function myFunction() {
-        document.getElementsByTagName("H1")[0].setAttribute("class", "democlass");
+        document.getElementsByTagName("p")[3].setAttribute("class", "democlass");
     }
     function mySong(){
-    	var song01 = document.getElementById("song01");
-    	song01.innerHTML = "Beyond - lover";
+    	document.getElementById("song01").innerHTML="Beyond - lover";
     }
-    //Runs the mySong function automatically after the page is completely loaded. P285
+    function getAttributeContent() {
+    	alert(document.getElementById("song01").innerHTML);
+    }
+    //Runs the mySong function automatically after the page is fully loaded. P285
     window.onload=mySong;
     </script>
 </head>
 
 <body>
+	<p>Song list: </p>
 	<p id="song01" class="bigFont">Beyond</p>
-    <h1>Hello World</h1>
-    <p>Click the button to add a class attribute with the value of "democlass" to the h1 element.</p>
-    <button onclick="myFunction()">Try it</button>
+	<p>(innerHTML) </p><br>
+    <p class="bigFont">  Hello World </p>
+    <p>(setAttribute) </p><br>	
+    <h1>Hello Paradise</h1>
+    <!-- <p>Click the button to add a class attribute with the value of "democlass" to the h1[0] element.</p> -->
+    <button onclick="myFunction()">Turn Hello world blue</button>
+    <button onclick="getAttributeContent()">Get song list</button>
 </body>
 
 </html>
