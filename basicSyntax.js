@@ -144,3 +144,24 @@ dog.toSit();
 // for(var prop in document){
 // 	console.log(prop + ": " + document[prop]);
 // }
+
+var string01 = ["string"];
+function func01(){
+	return null;
+}
+var nullValue = null;
+var notAssign;
+
+console.log("The type of String01(Array): " + typeof string01);
+console.log("The type of func01: " + typeof func01());
+console.log("The type of nullValue(null): " + typeof nullValue);
+console.log("The type of notAssign(nothing): " + typeof notAssign);
+console.log("The type of __ (doesn't exist): " + typeof nothingAtAll);
+
+myNum = "A";
+console.log("tests var by isNAN(): "+isNaN(myNum));
+
+
+
+
+
