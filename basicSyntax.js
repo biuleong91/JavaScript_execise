@@ -10,7 +10,7 @@ console.log("The random number is: " + rand + "\n");
 
 //Function
 function takeaway(a, b) {
-    return c = a - b;
+    return (c = a - b);
 }
 
 console.log("Subtraction method: " + takeaway(1, 3) + "\n");
@@ -61,7 +61,7 @@ for (i = 0; i <= scores.length - 1; i++) {
 }
 
 getBestSolutions(scores, bestSolutions);
-var index = getMostCostEffectiveSolution(scores, costs, highestScore);
+var index = getMostCostEffectiveSolution(scores, costs);
 
 console.log("Bubbles test: " + scores.length);
 console.log("Highest bubble scores: " + highestScore);
@@ -95,7 +95,7 @@ function getHighestScore(scores) {
     return highestScore;
 }
 
-function getMostCostEffectiveSolution(scores, costs, highscore) {
+function getMostCostEffectiveSolution(scores, costs) {
     var cost = 100;
     var index;
 
@@ -161,6 +161,17 @@ console.log("The type of __ (doesn't exist): " + typeof nothingAtAll);
 myNum = "A";
 console.log("tests var by isNAN(): "+isNaN(myNum));
 
+var bool = true;
+var str = " love";
+var cat = bool + str;
+console.log("The concatenation of bool and str: " + cat + ", is a type of " + typeof cat);
+
+// Types conversion, + operator
+var num01 = 1;
+var num02 = "2";
+var num03 = num01 + Number(num02);
+console.log("adds num01 to num02(string): " + num01+num02 + " is the type of: " + typeof (num01+num02));
+console.log("adds num01 to Number(num02(string)): " + (num01+Number(num02)) + " is the type of: " + typeof (num01+Number(num02)));
 
 
 
