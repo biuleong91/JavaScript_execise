@@ -16,20 +16,16 @@ var view = {
 
 var model = {
     boardSize: 7,
-    numShips: 3,
+    numShips: 1,
     shipSunk: 0,
     shipLength: 3,
-    ships: [{ locations: ["06", "16", "26"], hits: ["", "", ""] },
-        { locations: ["24", "34", "44"], hits: ["", "", ""] }
+    ships: [{ locations: ["06", "16", "26"], hits: ["", "", ""] }
+        // { locations: ["24", "34", "44"], hits: ["", "", ""] }
         // { locations: ["23", "33", "43"], hits: ["", "", ""] }
     ],
     fire: function(guess) {
         for (var i = 0; i < this.ships.length; i++) {
             var ship = this.ships[i];
-
-            console.log("ships.length: " + this.ships.length);
-            console.log("i: " + i + " : " + ship.locations);
-
             var index = ship.locations.indexOf(guess);
             if (index >= 0) {
                 ship.hits[index] = "hit";
@@ -54,15 +50,12 @@ var model = {
             }
         }
         return true;
-
     }
 };
 
-
-
 var controller = {
     guesses: 0,
-    process: function(guess) {
+    processGuess: function(guess) {
         var location = parseGuess(guess);
         if (location) {
             this.guesses++;
@@ -93,15 +86,35 @@ function parseGuess(guess) {
     }
     return null;
 }
+
+function init(){
+    var fireButton = document.getElementById("fireButton");
+    fireButton.onclick = handleFireButton;
+    document.getElementById("guessInput").onkeypress = handleKeyPress;
+}
+
+function handleKeyPress(e){
+    console.log("test");
+    if(e.keyCode===13){
+        document.getElementById("fireButton").click();
+        return false;
+    }
+}
+
+function handleFireButton(){
+    var guessInput = document.getElementById("guessInput");
+    var guess = guessInput.value;
+    // console.log(guess);
+    controller.processGuess(guess);
+    guessInput.value="";
+}
+window.onload = init;
 // view.displayHit("14");
 // view.displayMiss("22");
 // view.displayMessage("done");
 // ships: [{ locations: ["06", "16", "26"], hits: ["", "", ""] },
 //     { locations: ["24", "34", "44"], hits: ["", "", ""] },
 //     { locations: ["23", "33", "43"], hits: ["", "", ""] }
-model.fire(parseGuess("A6"));
-model.fire(parseGuess("B6"));
-model.fire(parseGuess("C6"));
-model.fire(parseGuess("C4"));
-model.fire(parseGuess("D4"));
-model.fire(parseGuess("E4"));
+
+
+

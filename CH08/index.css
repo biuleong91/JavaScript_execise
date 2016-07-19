@@ -12,8 +12,8 @@ div#board {
 
 div#messageArea {
     position: absolute;
-    top: 0px;
-    left: 0px;
+    bottom: 80px;
+    right: 30px;
     color: rgb(83, 175, 19);
 }
 
@@ -22,13 +22,13 @@ table {
     left: 173px;
     top: 98px;
     border-spacing: 0px;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
 
 td {
-    width: 92px;
-    height: 92px;
-    border: 1px solid red;
+    width: 94px;
+    height: 94px;
+    /*border: 1px solid red;*/
 }
 
 form {
