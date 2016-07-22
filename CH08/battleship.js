@@ -16,30 +16,48 @@ var view = {
 
 var model = {
     boardSize: 7,
-    numShips: 1,
+    numShips: 3,
     shipSunk: 0,
     shipLength: 3,
-    ships: [{ locations: ["06", "16", "26"], hits: ["", "", ""] }
-        // { locations: ["24", "34", "44"], hits: ["", "", ""] }
-        // { locations: ["23", "33", "43"], hits: ["", "", ""] }
+    ships: [{ locations: ["", "", ""], hits: ["", "", ""] },
+        { locations: ["", "", ""], hits: ["", "", ""] },
+        { locations: ["", "", ""], hits: ["", "", ""] }
     ],
+    RecordCorrectGuess: [],
+
     fire: function(guess) {
         for (var i = 0; i < this.ships.length; i++) {
             var ship = this.ships[i];
             var index = ship.locations.indexOf(guess);
             if (index >= 0) {
-                ship.hits[index] = "hit";
-                view.displayHit(guess);
-                view.displayMessage("HIT!");
-                if (this.isSink(ship)) {
-                    this.shipSunk++;
-                    view.displayMessage("You sank my battleship!");
+                if (!this.checkHitRecord(guess)) {
+                    console.log("Check hit records: " + this.RecordCorrectGuess + " Result: " + this.checkHitRecord(guess));
+                    ship.hits[index] = "hit";
+                    view.displayHit(guess);
+                    view.displayMessage("HIT!");
+                    this.RecordCorrectGuess.push(guess);
+                    if (this.isSink(ship)) {
+                        this.shipSunk++;
+                        view.displayMessage("You sank my battleship!");
+                    }
+                    return true;
+                } else {
+                    view.displayHit(guess);
+                    view.displayMessage("Replicate!");
+                    return false;
                 }
-                return true;
             } else {
-                view.displayMiss(guess);
-                view.displayMessage("MISS!");
+                    console.log(index);
+                    view.displayMiss(guess);
+                    view.displayMessage("MISS!");
             }
+        }
+        return false;
+    },
+    checkHitRecord: function(guess) {
+            if ((this.RecordCorrectGuess.indexOf(guess)) > -1){
+                console.log(this.RecordCorrectGuess);
+                return true;
         }
         return false;
     },
@@ -50,6 +68,51 @@ var model = {
             }
         }
         return true;
+    },
+    generateLocation: function() {
+        var row, column;
+        var newShipLocation = [];
+        for (var j = 0; j < this.numShips; j++) {
+            console.log("Creating the " + j + "th ship: ");
+            do {
+                newShipLocation = [];
+                var direction = Math.floor(Math.random() * 2);
+
+                if (0 === direction) {
+                    row = Math.floor((Math.random() * this.boardSize));
+                    column = Math.floor((Math.random() * (this.boardSize - this.shipLength)));
+                    for (var i = 0; i < this.shipLength; i++) {
+                        newShipLocation.push((row + "" + (column + i)));
+
+                    }
+                } else {
+                    column = Math.floor((Math.random() * this.boardSize));
+                    row = Math.floor((Math.random() * (this.boardSize - this.shipLength)));
+                    for (var i = 0; i < this.shipLength; i++) {
+                        newShipLocation.push(((row + i) + "" + column));
+                    }
+
+
+                }
+            } while (model.collision(newShipLocation));
+            this.ships[j].locations = newShipLocation;
+        }
+    },
+
+    collision: function(newShipLocation) {
+        console.log("Collision occured");
+        for (var j = 0; j < this.numShips; j++) {
+            for (var i = 0; i < this.shipLength; i++) {
+                if (-1 < this.ships[j].locations.indexOf(newShipLocation[i]))
+                    return true;
+            }
+
+        }
+        return false;
+    },
+    printShips: function() {
+        for (var i = 0; i < this.numShips; i++)
+            console.log(this.ships[i].locations);
     }
 };
 
@@ -87,26 +150,26 @@ function parseGuess(guess) {
     return null;
 }
 
-function init(){
+function init() {
+    model.generateLocation();
+    model.printShips();
     var fireButton = document.getElementById("fireButton");
     fireButton.onclick = handleFireButton;
     document.getElementById("guessInput").onkeypress = handleKeyPress;
 }
 
-function handleKeyPress(e){
-    console.log("test");
-    if(e.keyCode===13){
+function handleKeyPress(e) {
+    if (e.keyCode === 13) {
         document.getElementById("fireButton").click();
         return false;
     }
 }
 
-function handleFireButton(){
+function handleFireButton() {
     var guessInput = document.getElementById("guessInput");
     var guess = guessInput.value;
-    // console.log(guess);
     controller.processGuess(guess);
-    guessInput.value="";
+    guessInput.value = "";
 }
 window.onload = init;
 // view.displayHit("14");
@@ -115,6 +178,3 @@ window.onload = init;
 // ships: [{ locations: ["06", "16", "26"], hits: ["", "", ""] },
 //     { locations: ["24", "34", "44"], hits: ["", "", ""] },
 //     { locations: ["23", "33", "43"], hits: ["", "", ""] }
-
-
-

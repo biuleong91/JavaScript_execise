@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>    <meta charset="utf-8"></head>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
 <body>
+    <form>
+        <input type="text" id="guessInput" placeholder="A0">
+        <input type="button" id="fireButton" value="Fire!">
+    </form>
+    <script>
+    function triggle() {
+        button = document.getElementById("fireButton");
+        button.onclick = myFunction;
+    }
 
-<form>
-<input type="text" id="guessInput" placeholder="A0">
-<input type="button" id="fireButton" value="Fire!">
-</form>
-
-<script>
-function triggle(){
-	button=document.getElementById("fireButton");
-	button.onclick=myFunction;
-}
-
-function myFunction() {
-	console.log("test");
-}
-window.onload=triggle;
-</script>
-
+    function myFunction() {
+        console.log("test");
+    }
+    window.onload = triggle;
+    </script>
 </body>
+
 </html>

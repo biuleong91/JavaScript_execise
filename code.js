@@ -1,18 +1,13 @@
-    var init={
-    ships: [{ locations: ["06", "16", "26"], hits: ["", "", ""] },
-        { locations: ["24", "34", "44"], hits: ["", "", ""] }
-        // { locations: ["23", "33", "43"], hits: ["", "", ""] }
-    ],
+var newShipLocation;
+var row=0;
+var column=0;
+var shipLength=3;
 
-    print: function(){
-    	for(var i = 0; i<this.ships.length;i++)
-    	console.log(this.ships[i]);
-    }
-    };
+var cars = [{car:["BMW", "Volvo", "Saab", "Ford"]},
+{car:["BMW", "Volvo", "Saab", "Ford"]}];
+var text = "";
 
-    init.print();
 
-    var s = [{ locations: ["06", "16", "26"], hits: ["", "", ""] },
-        { locations: ["24", "34", "44"], hits: ["", "", ""] }];
-        a = s[0].locations;
-        console.log(a);
+            for(var i=0;i<cars.length;i++)
+            console.log(cars[i].car);
+
