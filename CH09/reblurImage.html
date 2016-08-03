@@ -14,20 +14,33 @@
     }
     </style>
     <script>
-    window.onload = init;
-
-    function init() {
+    window.onload = function() {
         var images = document.getElementsByTagName("img");
         for (var i = 0; i < images.length; i++) {
-            images[i].onclick = showAnswer;
+            // images[i].onclick = showAnswer;
+            images[i].onmouseover = showAnswer;
+            images[i].onmouseout = reblur;
         }
-    }
+    };
+
+    window.onresize = function(){
+        console.log("Resizing the browser");
+    };
 
     function showAnswer(eventObj) {
         var image = eventObj.target;
-        var name=image.id;
-        name=name+".jpg";
-        image.src=name;
+        var name = image.id;
+        name = name + ".jpg";
+        image.src = name;
+
+        setTimeout(reblur, 3000, eventObj);
+    }
+
+    function reblur(eventObj) {
+        var image = eventObj.target;
+        var name = image.id;
+        name = name + "blur.jpg";
+        image.src = name;
     }
     </script>
 </head>
