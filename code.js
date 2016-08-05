@@ -1,13 +1,18 @@
-var newShipLocation;
-var row=0;
-var column=0;
-var shipLength=3;
+var migrating = false;
 
-var cars = [{car:["BMW", "Volvo", "Saab", "Ford"]},
-{car:["BMW", "Volvo", "Saab", "Ford"]}];
-var text = "";
+quack(1);
 
-
-            for(var i=0;i<cars.length;i++)
-            console.log(cars[i].car);
-
+var fly = function(num) {
+for (var i = 0; i < num; i++) {
+console.log("Flying!");
+}
+};
+function quack(num) {
+for (var i = 0; i < num; i++) {
+console.log("Quack!");
+}
+}
+if (migrating) {
+quack(4);
+fly(4);
+}
