@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>First class example</title>
+    <script type="text/javascript">
+    function processPassengers(passengers, testFunction) {
+        for (var i = 0; i < passengers.length; i++) {
+            if (testFunction(passengers[i]))
+                return false;
+        }
+        return true;
+    }
+
+    function isInNoflyList(passenger) {
+        if (passenger.name === "John Funcall1") {
+            console.log(passenger.name + " is in teh No-fly list.");
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function isNoPaid(passenger) {
+        if (passenger.paid === false) return true;
+        else
+            return false;
+    }
+
+    function printPassengers(passenger) {
+        console.log("Name: " + passenger.name + " Pay status: " + passenger.paid + "Ticket type: " + passenger.ticket);
+    }
+
+    function serveCustomer(passenger) {
+        var getDrinkOrderFunction = createDrinkOrder(passenger);
+        getDrinkOrderFunction();
+        var getDinnerOrderFuncton = createDinnerOrder(passenger);
+        getDinnerOrderFuncton();
+    }
+
+    function createDrinkOrder(passenger) {
+        var orderFunction;
+        switch (passenger.ticket) {
+            case "coach":
+            case "premium":
+                orderFunction = function() {
+                    alert(": Your choice is water or cola? " + passenger.name);
+                };
+                break;
+            case "firstclass":
+                orderFunction = function() {
+                    alert("Would you like Wine or cocktail? " + passenger.name);
+                };
+                break;
+        }
+        return orderFunction;
+    }
+
+    function createDinnerOrder(passenger) {
+        var orderFunction;
+        switch (passenger.ticket) {
+            case "coach":
+                orderFunction = function() {
+                    alert(": Your choice is peanuts or pretzels? " + passenger.name);
+                };
+                break;
+            case "firstclass":
+                orderFunction = function() {
+                    alert("Would you like chicken or pasta? " + passenger.name);
+                };
+                break;
+            case "premium":
+                orderFunction = function() {
+                    alert("Would you like snack box or cheese plate? " + passenger.name);
+                };
+                break;
+        }
+        return orderFunction;
+    }
+
+    function servePassengers(passengers) {
+        for (var i = 0; i <= passengers.length; i++) {
+            serveCustomer(passengers[i]);
+        }
+    }
+    var passengers = [{
+        name: "Jane Doloop",
+        paid: true,
+        ticket: "coach"
+    }, {
+        name: "Dr. Evel",
+        paid: true,
+        ticket: "firstclass"
+    }, {
+        name: "Sue Property",
+        paid: false,
+        ticket: "firstclass"
+    }, {
+        name: "John Funcall",
+        paid: true,
+        ticket: "premium"
+    }];
+
+    var noFlyList = processPassengers(passengers, isInNoflyList);
+    if (!noFlyList)
+        console.log("not ready to take off; someone is in the No-fly list");
+
+    var noPaid = processPassengers(passengers, isNoPaid);
+    if (!noPaid)
+        console.log("not ready to take off; not everyone has paid");
+
+    processPassengers(passengers, printPassengers);
+
+    // processPassengers(passengers, serveCustomer);
+
+    servePassengers(passengers);
+    </script>

@@ -1,18 +1,9 @@
-var migrating = false;
-
-quack(1);
-
-var fly = function(num) {
-for (var i = 0; i < num; i++) {
-console.log("Flying!");
-}
+function addN(n) {
+var adder = function(x) {
+return n + x;
 };
-function quack(num) {
-for (var i = 0; i < num; i++) {
-console.log("Quack!");
+console.log(adder);
+return adder;
 }
-}
-if (migrating) {
-quack(4);
-fly(4);
-}
+
+console.log(addN(2));
