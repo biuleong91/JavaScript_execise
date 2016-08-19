@@ -1,9 +1,14 @@
-function addN(n) {
-var adder = function(x) {
-return n + x;
-};
-console.log(adder);
-return adder;
-}
+var justAVar = "Oh, don't you worry about it, I'm GLOBAL";
 
-console.log(addN(2));
+function whereAreYou() {
+    var justAVar = "Just an every day LOCAL";
+
+    function inner() {
+        return justAVar;
+    }
+    return inner;
+}
+var innerFunction = whereAreYou();
+var result = innerFunction();
+console.log(result);
+

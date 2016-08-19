@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Dr. Evel's Secret Code Page</title>
+    <script>
+    window.onload = function() {
+            document.getElementById('txt1').onkeydown = function() {
+                if (this.value.length == this.maxLength)
+                    document.getElementById('txt2').focus();
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <input type='text' id='txt1' maxlength='5' />
+    <input type='text' id='txt2' maxlength='5' />
+</body>
+
+</html>
