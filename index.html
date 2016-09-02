@@ -11,15 +11,26 @@
         <input type="button" id="fireButton" value="Fire!">
     </form>
     <script>
-    function triggle() {
-        button = document.getElementById("fireButton");
-        button.onclick = myFunction;
+    function Cat(name, breed, weight) {
+        this.name = name;
+        this.breed = breed;
+        this.weight = weight;
+        this.bark = function() {
+            if (this.weight > 20)
+                alert("Woof");
+            else
+                alert("Miao");
+        };
     }
 
-    function myFunction() {
-        console.log("test");
+
+    var happy = new Cat("Happy", "Golden", 22);
+    var lucky = new Cat("Lucky", "Kurl", 10);
+    var cats = [happy, lucky];
+
+    for (var i = 0; i < cats.length; i++) {
+        console.log(cats[i].name + " , " + cats[i].weight + ", " + cats[i].bark());
     }
-    window.onload = triggle;
     </script>
 </body>
 

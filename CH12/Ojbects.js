@@ -50,3 +50,7 @@ var clients = [client4];
 for (var i = 0; i < clients.length; i++) {
     console.log(clients[i].roast + " " + clients[i].size());
 }
+
+if(client4 instanceof Coffee){
+    console.log("Client4 is a kind of Coffee");
+}
