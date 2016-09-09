@@ -54,3 +54,28 @@ for (var i = 0; i < clients.length; i++) {
 if(client4 instanceof Coffee){
     console.log("Client4 is a kind of Coffee");
 }
+
+
+//Delete, add properties/function
+
+function Dog(name,breed,weight){
+    this.name = name;
+    this.breed = breed;
+    this.weight = weight;
+}
+
+var doggie = new Dog("Doggie","Rot", 10);
+delete doggie.breed;
+doggie.breed = "Rott";
+doggie.height = "50cm";
+doggie.trust = function(person){
+    return (person ==="Biu");
+};
+
+var dogs = [doggie];
+
+    for(var i=0;i<dogs.length;i++){
+        console.log(dogs[i].name + " " + dogs[i].breed);
+        console.log(dogs[i].trust("Biu"));
+        console.log(dogs[i]);
+    }
