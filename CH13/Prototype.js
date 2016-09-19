@@ -20,7 +20,6 @@ dog2.bark = function(){
  console.log(this.name + " says Woof");
 };
 
-
 dog1.bark();
 dog2.bark();
 
@@ -28,3 +27,4 @@ Dog.prototype.sit = function(){
 	console.log(this.name + " is sitting");
 };
 dog2.sit();
+

@@ -1,14 +1,18 @@
-var bday = new Date();
-console.log(bday);
+function Person(first, last, age, eye) {
+    this.firstName = first;
+    this.lastName = last;
+    this.age = age;
+    this.eyeColor = eye;
+}
 
-var serials=new Array(3);
-console.log(serials);
-serials[1]=2;
-serials[2]=2;
-serials[3]=2;
-console.log(serials);
-console.log(serials.length);
+var myFather = new Person("John", "Doe", 50, "blue");
+var myMother = new Person("Sally", "Rally", 48, "green");
 
-console.log(serials.every(function(x){
-    return (x%2==0);
-}));
+Person.prototype.nationality = "English";
+myFather.gender="male";
+
+
+
+console.log(myFather.constructor);
+console.log(myFather.nationality);
+console.log(myFather.hasOwnProperty("gender"));
